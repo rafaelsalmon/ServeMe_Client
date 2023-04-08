@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--Appointment Detail (Page)-->
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:customControls="clr-namespace:SirvaMe.CustomControls;assembly=SirvaMe"
+             x:Class="SirvaMe.Views.AgendamentoDetalhePage"
+             BackgroundColor="{StaticResource BackgroundColor}"
+             Title="Detalhes do Agendamento">
+
+  <StackLayout Orientation="Vertical">
+
+    <StackLayout Orientation="Vertical" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand">
+
+      <StackLayout Padding="20" VerticalOptions="StartAndExpand" BackgroundColor="Transparent">
+
+        <Grid>
+          <Grid.RowDefinitions>
+            <RowDefinition Height="20"></RowDefinition>
+            <RowDefinition Height="20"></RowDefinition>
+            <RowDefinition Height="20"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="35"></RowDefinition>
+          </Grid.RowDefinitions>
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="30"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+          </Grid.ColumnDefinitions>
+
+          <customControls:CircleImage Grid.Row="0" Grid.Column="0" Source="icon_servico.png" HeightRequest="20" WidthRequest="20" VerticalOptions="Start" HorizontalOptions="Center" Aspect="AspectFill" />
+          <Label Grid.Row="0" Grid.Column="1" Text="{Binding TipoServico}" FontSize="15" TextColor="{StaticResource PerfilTitleFontColor}" />
+
+          <Image Grid.Row="1" Grid.Column="0" Source="icon_data.png" />
+          <Label Grid.Row="1" Grid.Column="1" Text="{Binding DataHoraInicio, StringFormat='{0:D}'}" FontSize="15" TextColor="{StaticResource PerfilTitleFontColor}" />
+
+          <Image Grid.Row="2" Grid.Column="0" Source="icon_hora.png" />
+          <Label Grid.Row="2" Grid.Column="1" Text="{Binding DataHoraInicio, StringFormat='{0:HH:mm}hs'}" FontSize="15" TextColor="{StaticResource PerfilTitleFontColor}" />
+
+          <Image Grid.Row="3" Grid.Column="0" Source="icon_local.png" HeightRequest="24" WidthRequest="16" VerticalOptions="Start" />
+          <Label Grid.Row="3" Grid.Column="1" Text="{Binding EnderecoCompleto}" FontSize="15" TextColor="{StaticResource PerfilTitleFontColor}" />
+
+          <!--<Image Grid.Row="4" Grid.Column="0" Source="icon_status2.png" HeightRequest="19" WidthRequest="18" />-->
+          <Label Grid.Row="4" Grid.Column="1" Text="{Binding Status}" FontSize="14" TextColor="{StaticResource MenuLinkColor}" />
+
+        </Grid>
+
+        <BoxView HeightRequest="5" WidthRequest="100" BackgroundColor="Transparent"/>
+        <BoxView HeightRequest="1" WidthRequest="100" BackgroundColor="Gray"/>
+        <BoxView HeightRequest="5" WidthRequest="100" BackgroundColor="Transparent"/>
+
+        <ScrollView>
+
+          <StackLayout>
+            
+            <Label Text="{Binding Titulo, StringFormat='Serviço: {0}'}" VerticalOptions="StartAndExpand" HorizontalOptions="StartAndExpand" VerticalTextAlignment="Start" FontSize="15" TextColor="Gray" FontAttributes="Bold" />
+            <Label Text="{Binding Descricao, StringFormat='Descrição do Serviço: {0}'}" VerticalOptions="StartAndExpand" HorizontalOptions="StartAndExpand" VerticalTextAlignment="Start" FontSize="15" TextColor="Gray" />
+            <ActivityIndicator x:Name="Loading" IsRunning="True" IsVisible="False"/>
+
+          </StackLayout>
+
+        </ScrollView>
+
+      </StackLayout>
+
+    </StackLayout>
+
+    <StackLayout Padding="0"  VerticalOptions="EndAndExpand">
+
+      <Grid x:Name="ButtonsGrid" Padding="0" BackgroundColor="{StaticResource EntryTextColor}">
+        <Grid.RowDefinitions>
+          <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="*"></ColumnDefinition>
+          <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Button Grid.Row="0" Grid.Column="0" x:Name="ProfissionalButton" Text="VER PROFISSIONAL" Style="{StaticResource ButtonStyle}" Clicked="ProfissionalOnButtonClicked" IsVisible="False" />
+        <Button Grid.Row="0" Grid.Column="0" x:Name="Profissional2Button" Text="VER PROFISSIONAL" Style="{StaticResource ButtonStyle}" Clicked="Profissional2OnButtonClicked" IsVisible="False" />
+        <Button Grid.Row="0" Grid.Column="0" x:Name="PropostasButton" Text="VER PROPOSTAS" Style="{StaticResource ButtonStyle}" Clicked="PropostasOnButtonClicked" IsVisible="False" />
+        <Button Grid.Row="0" Grid.Column="1" x:Name="CancelarButton" Text="CANCELAR" Style="{StaticResource ButtonStyle}" Clicked="CancelarOnButtonClicked" IsVisible="False" />
+        <Button Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" x:Name="AtivarButton" Text="ATIVAR AGENDAMENTO" Style="{StaticResource ButtonStyle}" Clicked="AtivarOnButtonClicked" IsVisible="False" />
+        <Button Grid.Row="0" Grid.Column="1" x:Name="ConcluirButton" Text="CONCLUIR" Style="{StaticResource ButtonStyle}" Clicked="ConcluirOnButtonClicked" IsVisible="False" />
+
+      </Grid>
+
+    </StackLayout>
+
+  </StackLayout>
+
+</ContentPage>

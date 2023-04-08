@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--Appointments ListView (View)-->
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:customControls="clr-namespace:SirvaMe.CustomControls;assembly=SirvaMe"
+             x:Class="SirvaMe.Views.AgendamentosListView">
+  <ContentView.Content>
+
+    <StackLayout Padding="10" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" IsVisible="{Binding IsNotEmpty}">
+
+      <StackLayout Padding="15,0,0,0" HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand" BackgroundColor="{StaticResource MenuLinkColor}">
+
+        <StackLayout Padding="10" HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand" BackgroundColor="White">
+
+          <Grid>
+            <Grid.RowDefinitions>
+              <RowDefinition Height="24"></RowDefinition>
+              <RowDefinition Height="24"></RowDefinition>
+              <RowDefinition Height="24"></RowDefinition>
+              <RowDefinition Height="36"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="30"></ColumnDefinition>
+              <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <customControls:CircleImage Grid.Row="0" Grid.Column="0" Grid.RowSpan="3" Source="icon_servico.png" HeightRequest="24" WidthRequest="24"
+                                        VerticalOptions="Start" HorizontalOptions="Center" Aspect="AspectFill" />
+
+            <Label Grid.Row="0" Grid.Column="1" Text="{Binding Titulo}" FontSize="16" FontAttributes="Bold" TextColor="{StaticResource FontColor}"
+                   VerticalTextAlignment="Start" HorizontalTextAlignment="Start" />
+
+            <Image Grid.Row="1" Grid.Column="0" Source="icon_local.png" HeightRequest="24" WidthRequest="16" VerticalOptions="Start" />
+
+            <Label Grid.Row="1" Grid.Column="1" Text="{Binding Endereco.Bairro}" FontSize="15" TextColor="{StaticResource PerfilTitleFontColor}"
+                   VerticalTextAlignment="Start" HorizontalTextAlignment="Start" HorizontalOptions="StartAndExpand" />
+
+            <Image Grid.Row="2" Grid.Column="0" Source="icon_data.png" />
+
+            <Label Grid.Row="2" Grid.Column="1" Text="{Binding DataHoraTexto}" FontSize="15" TextColor="{StaticResource PerfilTitleFontColor}"
+                   VerticalTextAlignment="Start" HorizontalTextAlignment="Start" />
+
+            <Label Grid.Row="3" Grid.Column="1" Text="{Binding Status}" FontSize="14" TextColor="{StaticResource MenuLinkColor}"
+                   VerticalTextAlignment="Start" HorizontalTextAlignment="Start" />
+
+          </Grid>
+
+        </StackLayout>
+
+      </StackLayout>
+
+    </StackLayout>
+
+  </ContentView.Content>
+</ContentView>

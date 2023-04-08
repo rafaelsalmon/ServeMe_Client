@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--Login (Page)-->
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:customControls="clr-namespace:SirvaMe.CustomControls;assembly=SirvaMe"
+             x:Class="SirvaMe.Views.LoginPage"
+             BackgroundColor="{StaticResource BarBackgroundColor}"
+             BackgroundImage="splashScreen.png">
+
+  <StackLayout Padding="0,0,0,80" VerticalOptions="EndAndExpand" HorizontalOptions="FillAndExpand" >
+
+    <customControls:FacebookLoginButton x:Name="BtnLogin" BackgroundColor="Transparent" WidthRequest="240" Text="Facebook Login" Image="button_facebook.png"
+                                            TextColor="White" HorizontalOptions="Center" IsVisible="True"/>
+
+    <StackLayout x:Name="LoadingStackLayout" Padding="5, 15" IsVisible="False">
+
+      <ActivityIndicator x:Name="Loading" IsVisible="True" IsRunning="True" AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1" />
+
+      <Label Text="Aguarde! Efetuando login..." Font="Bold" FontSize="13" HorizontalOptions="Center" TextColor="White" />
+
+    </StackLayout>
+
+    <Label x:Name="SemConexaoLabel" Text="Sem conexão com a internet!" Font="Bold" FontSize="18" HorizontalTextAlignment="Center"
+             HorizontalOptions="FillAndExpand" BackgroundColor="#FA8F8F" TextColor="White" IsVisible="False" />
+
+    <Label x:Name="LblInfoLogin" Text="Nenhuma informação será publicada sem a sua autorização" WidthRequest="250" TextColor="White" 
+           FontSize="14" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" />
+
+  </StackLayout>
+</ContentPage>

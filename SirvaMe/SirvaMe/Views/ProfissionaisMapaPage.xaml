@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--Professionals Map (Page)-->
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SirvaMe;assembly=SirvaMe"
+             xmlns:models="clr-namespace:SirvaMe.Models;assembly=SirvaMe"
+             x:Class="SirvaMe.Views.ProfissionaisMapaPage"
+             BackgroundColor="#E6E6E6"
+             Title="Profissionais por perto">
+
+  <StackLayout Orientation="Vertical">
+
+    <StackLayout x:Name="MapStackLayout" VerticalOptions="FillAndExpand">
+
+      <models:CustomMap x:Name="CustomMap" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" HeightRequest="350" IsShowingUser="true" MapType="Street" />
+
+    </StackLayout>
+
+    <StackLayout VerticalOptions="EndAndExpand">
+
+      <Button Text="CONTINUAR" Style="{StaticResource ButtonStyle}" Clicked="ContinuarOnButtonClicked" />
+
+    </StackLayout>
+
+  </StackLayout>
+
+</ContentPage>

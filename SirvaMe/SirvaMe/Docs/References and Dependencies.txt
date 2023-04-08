@@ -1,0 +1,109 @@
+﻿
+Name: SirvameKey
+Project Name: me.sirva
+SirvameKey - For tests: AIzaSyAxbUHHFP3yA-Zat4V06pZ31zL6DOcjh0Q
+Project Number: 596505595555a
+
+SirvameFornecedorKey (meaning: "Sirvame Provider Key"") - AIzaSyD3JVxgs26gibIDbV8Z8nHbnIJCV9J1iCU
+ProjectID: sirvamefornecedor
+
+Styles XAML staticresource
+https://forums.xamarin.com/discussion/35950/app-cs-and-staticresource
+
+Icons
+http://www.flaticon.com/free-icon/location-pin_62516#term=map location&page=1&position=3 Pin
+http://www.flaticon.com/free-icon/map_115763#term=map&page=2&position=15 Map
+http://www.flaticon.com/free-icon/filter-tool-black-shape_25337#term=filter&page=1&position=8 Filter
+http://www.flaticon.com/free-icon/star_118669#term=stars&page=1&position=4 Star
+
+Rating Stars and Form Validation
+https://blog.xamarin.com/behaviors-in-xamarin-forms/
+https://github.com/nishanil/Xamarin.Forms-Samples/tree/57857223732b56bd79bf7f9d3bd9c2e311266995/Samples%20(1.3)/Samples/Samples
+
+Push Notification Plugin
+https://github.com/rdelrosario/xamarin-plugins/tree/master/PushNotification
+Install-Package Xam.Plugin.PushNotification
+To send Push = PushSharp
+
+Menu
+https://www.syntaxismyui.com/xamarin-forms-masterdetail-page-navigation-recipe/
+
+Calendar-Control
+https://github.com/XLabs/Xamarin-Forms-Labs/wiki/Calendar-Control
+
+XamarinFormsNativeFacebook 
+
+** ATTENTION - Change on Info.plist the Facebook ID = <string>fb1050327158389611</string>
+https://github.com/mikescandy/XamarinFormsNativeFacebook
+Settings: https://developers.facebook.com/apps/1050327158389611/settings/
+Gerar Hash: https://components.xamarin.com/gettingstarted/facebookandroid
+
+Facebook SDK iOS/Android
+https://components.xamarin.com/gettingstarted/facebook-sdk/true
+Hash Mobile Device Nexus 4: SoeGoE98FoNMSfRQtHPMAGu/Juk=
+
+Map Custom Renderer
+https://developer.xamarin.com/guides/xamarin-forms/custom-renderer/map/
+https://developer.xamarin.com/samples/xamarin-forms/customrenderers/map/
+
+Xamarin.Forms.Maps
+<meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyB77bGIXhRtuGnaReYsZWs94hP1VdR2A7o" />
+
+Install-Package Xamarin.Forms.Maps
+Install-Package Xamarin.GooglePlayServices
+https://developer.xamarin.com/samples/xamarin-forms/WorkingWithMaps/
+https://developer.xamarin.com/guides/xamarin-forms/working-with/maps/
+
+CMD: CD C:\Program Files (x86)\Java\jdk1.7.0_71\bin\
+
+keytool -list -v -keystore "C:\Users\Edgar\AppData\Local\Xamarin\Mono for Android\debug.keystore" -alias androiddebugkey -storepass android -keypass android
+
+MD5:  99:41:6B:15:28:6C:B7:97:98:F2:29:E3:BA:C1:A9:1F
+SHA1: 4A:87:86:A0:4F:7C:16:83:4C:49:F4:50:B4:73:CC:00:6B:BF:26:E9
+SHA256: D7:35:7B:0B:F2:B4:EC:48:47:39:25:7D:28:75:98:FB:EB:83:17:58:A2:49:CE:AE:17:15:D1:70:00:C1:93:0C
+
+https://github.com/jamesmontemagno/Xamarin.Plugins/tree/master/Geolocator
+Geolocator: Install-Package Xam.Plugin.Geolocator -Version 3.0.4
+
+XLabs.Forms
+Install-Package XLabs.Forms -Version 2.0.5782
+https://github.com/XLabs/Xamarin-Forms-Labs
+
+SQLite.Net-PCL
+Install-Package SQLite.Net-PCL
+https://developer.xamarin.com/guides/cross-platform/application_fundamentals/data/part_3_using_sqlite_orm/
+
+RestSharp.Portable HttpClient (Legacy... 3.1.0
+https://www.nuget.org/packages/FubarCoder.RestSharp.Portable
+Install-Package FubarCoder.RestSharp.Portable
+
+https://bitbucket.org/twincoders/sqlite-net-extensions
+Install-Package SQLiteNetExtensions
+
+ListView Custom
+https://www.syntaxismyui.com/xamarin-forms-listview-custom-viewcell-recipe/
+
+AdvancedTimer Plugin for Xamarin.Forms
+https://github.com/ufuf/AdvancedTimer
+https://www.nuget.org/packages/Mobilist.AdvancedTimer.Forms.Plugin/
+Install-Package Mobilist.AdvancedTimer.Forms.Plugin
+
+SimpleAudioForms
+https://github.com/tkowalczyk/SimpleAudioForms
+
+Plugins for Xamarin (Connectivity, ImageCircle, etc)
+
+Install-Package Xam.Plugin.Connectivity
+https://github.com/jamesmontemagno/Xamarin.Plugins/tree/master/Connectivity
+
+https://github.com/xamarin/plugins
+https://github.com/jamesmontemagno/Xamarin.Plugins
+https://www.nuget.org/packages/Acr.XamForms.Mobile/
+https://github.com/aritchie/acr-xamarin-forms
+https://github.com/aritchie/deviceinfo
+
+Progress
+https://components.xamarin.com/view/btprogresshud iOS
+https://github.com/redth/andhud Android
+
+Beep https://github.com/tkowalczyk/SimpleAudioForms

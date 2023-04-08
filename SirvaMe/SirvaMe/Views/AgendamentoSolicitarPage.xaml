@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--Appointment Schedule Request (Page)-->
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:system="clr-namespace:System;assembly=System.Runtime"
+             xmlns:customControls="clr-namespace:SirvaMe.CustomControls;assembly=SirvaMe"
+             x:Class="SirvaMe.Views.AgendamentoSolicitarPage"
+             BackgroundColor="{StaticResource BackgroundColor}"
+             Title="Novo Agendamento">
+
+  <StackLayout Orientation="Vertical">
+
+    <StackLayout Padding="15" Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+      <Label x:Name="TipoDeServicoLabel" Text="Tipo de Serviço" HorizontalOptions="Start" Font="Bold" FontSize="18" TextColor="{StaticResource FontColor}"  />
+      <BoxView HeightRequest="10" WidthRequest="100" BackgroundColor="White"/>
+
+      <Label x:Name="TituloLabel" Text="NOME DO SERVIÇO" Style="{StaticResource LabelStyle}" />
+
+      <StackLayout Padding="1,1,1,1" BackgroundColor="#e5e6e6" HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+        <Entry x:Name="TituloEntry" Style="{StaticResource EntryStyle}" Placeholder="Ex.: Pintura do Apto" />
+      </StackLayout>
+      <BoxView HeightRequest="2" WidthRequest="100" BackgroundColor="White"/>
+
+      <Label x:Name="DescricaoLabel" Text="DESCRIÇÃO DO SERVIÇO" Style="{StaticResource LabelStyle}" />
+
+      <StackLayout Padding="1,1,1,1" BackgroundColor="#e5e6e6" HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+        <Editor x:Name="DescricaoEntry" HeightRequest="120" Text="" Style="{StaticResource EditorStyle}" Keyboard="Default" />
+      </StackLayout>
+      <BoxView HeightRequest="2" WidthRequest="100" BackgroundColor="White"/>
+
+      <Grid Padding="5" BackgroundColor="White">
+        <Grid.RowDefinitions>
+          <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="*"></ColumnDefinition>
+          <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <StackLayout Grid.Row="0" Grid.Column="0">
+
+          <Label x:Name="DataLabel" Text="DATA" Style="{StaticResource LabelStyle}" />
+
+          <StackLayout Padding="1,1,1,1" BackgroundColor="#e5e6e6" HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+            
+            <Grid Padding="5" BackgroundColor="White">
+              <Grid.RowDefinitions>
+                <RowDefinition Height="40"></RowDefinition>
+              </Grid.RowDefinitions>
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="24"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+              </Grid.ColumnDefinitions>
+
+              <Image Grid.Row="0" Grid.Column="0" Source="icon_calendar.png" HorizontalOptions="Center" HeightRequest="20" WidthRequest="20"/>
+              <customControls:MyDatePicker Grid.Row="0" Grid.Column="1" x:Name="DataDatePicker" Date="{x:Static system:DateTime.Now}" 
+                                           Format="dd/MM/yyyy" TextColor="{StaticResource EntryTextColor}" VerticalOptions="Center"/>
+            </Grid>
+          </StackLayout>
+
+         <BoxView HeightRequest="2" WidthRequest="100" BackgroundColor="White"/>
+
+        </StackLayout>
+
+        <StackLayout Grid.Row="0" Grid.Column="1">
+
+          <Label x:Name="HoraLabel" Text="HORA" Style="{StaticResource LabelStyle}" />
+
+          <StackLayout Padding="1,1,1,1" BackgroundColor="#e5e6e6" HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+
+            <Grid Padding="5" BackgroundColor="White">
+              <Grid.RowDefinitions>
+                <RowDefinition Height="40"></RowDefinition>
+              </Grid.RowDefinitions>
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="24"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+              </Grid.ColumnDefinitions>
+
+              <Image Grid.Row="0" Grid.Column="0" Source="icon_clock.png" HorizontalOptions="Center" HeightRequest="20" WidthRequest="20"/>
+              <customControls:MyTimePicker Grid.Row="0" Grid.Column="1" x:Name="HoraTimePicker" TextColor="{StaticResource EntryTextColor}"/>
+            </Grid>
+          </StackLayout>
+
+          <BoxView HeightRequest="2" WidthRequest="100" BackgroundColor="White"/>
+
+        </StackLayout>
+
+      </Grid>
+
+    </StackLayout>
+
+    <StackLayout VerticalOptions="EndAndExpand">
+
+      <Button Text="CONTINUAR" Style="{StaticResource ButtonStyle}" Clicked="ContinuarOnButtonClicked" />
+
+    </StackLayout>
+
+  </StackLayout>
+
+</ContentPage>

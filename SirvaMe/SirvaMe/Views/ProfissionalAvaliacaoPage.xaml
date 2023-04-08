@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--Professional Review (Page)-->
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:customControls="clr-namespace:SirvaMe.CustomControls;assembly=SirvaMe"
+             x:Class="SirvaMe.Views.ProfissionalAvaliacaoPage"
+             BackgroundColor="{StaticResource BackgroundColor}"
+             Title="Avaliação">
+
+  <StackLayout VerticalOptions="FillAndExpand">
+
+    <StackLayout Padding="20" VerticalOptions="FillAndExpand" BackgroundColor="{StaticResource BackgroundAgendaColor}">
+
+      <Label Text="AVALIE ESTE PROFISSIONAL" Style="{StaticResource LabelTitleStyle}" TextColor="{StaticResource MenuColor}" FontSize="18" HorizontalTextAlignment="Center"/>
+
+      <customControls:CircleImage Source="{Binding Avatar}" HeightRequest="80" WidthRequest="80" VerticalOptions="Center" HorizontalOptions="Center" Aspect="AspectFill"/>
+      <Label Text="{Binding Prestador.Nome}" Style="{StaticResource LabelTitleStyle}" HorizontalTextAlignment="Center"/>
+      <Label Text="{Binding TipoServico}" Style="{StaticResource LabelSubTitleStyle}" HorizontalTextAlignment="Center"/>
+
+    </StackLayout>
+
+    <StackLayout Padding="10" VerticalOptions="FillAndExpand" BackgroundColor="White">
+
+      <StackLayout Orientation="Horizontal" HeightRequest="50" BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand">
+
+        <Grid>
+          <Grid.Behaviors>
+            <customControls:StarBehavior x:Name="StarOne" GroupName="myStar"/>
+          </Grid.Behaviors>
+
+          <Image x:Name="StarBlankOne" Source="star_outline.png" HeightRequest="32" WidthRequest="32" />
+          <Image x:Name="StarSelectedOne" Source="star_selected.png" HeightRequest="32" WidthRequest="32" IsVisible="{Binding Source={x:Reference StarOne}, Path=IsStarred}"/>
+
+        </Grid>
+
+        <Grid Padding="15,0,0,0">
+          <Grid.Behaviors>
+            <customControls:StarBehavior x:Name="StarTwo" GroupName="myStar"/>
+          </Grid.Behaviors>
+
+          <Image x:Name="StarBlankTwo" Source="star_outline.png" HeightRequest="32" WidthRequest="32" />
+          <Image x:Name="StarSelectedTwo" Source="star_selected.png" HeightRequest="32" WidthRequest="32" IsVisible="{Binding Source={x:Reference StarTwo}, Path=IsStarred}"/>
+
+        </Grid>
+
+        <Grid Padding="15,0,0,0">
+          <Grid.Behaviors>
+            <customControls:StarBehavior x:Name="StarThree" GroupName="myStar"/>
+          </Grid.Behaviors>
+
+          <Image x:Name="StarBlankThree" Source="star_outline.png" HeightRequest="32" WidthRequest="32" />
+          <Image x:Name="StarSelectedThree" Source="star_selected.png" HeightRequest="32" WidthRequest="32" IsVisible="{Binding Source={x:Reference StarThree}, Path=IsStarred}"/>
+
+        </Grid>
+
+        <Grid Padding="15,0,0,0">
+          <Grid.Behaviors>
+            <customControls:StarBehavior x:Name="StarFour" GroupName="myStar"/>
+          </Grid.Behaviors>
+
+          <Image x:Name="StarBlankFour" Source="star_outline.png" HeightRequest="32" WidthRequest="32" />
+          <Image x:Name="StarSelectedFour" Source="star_selected.png" HeightRequest="32" WidthRequest="32" IsVisible="{Binding Source={x:Reference StarFour}, Path=IsStarred}"/>
+
+        </Grid>
+
+        <Grid Padding="15,0,0,0">
+          <Grid.Behaviors>
+            <customControls:StarBehavior x:Name="StarFive" GroupName="myStar"/>
+          </Grid.Behaviors>
+
+          <Image x:Name="StarBlankFive" Source="star_outline.png" HeightRequest="32" WidthRequest="32" />
+          <Image x:Name="StarSelectedFive" Source="star_selected.png" HeightRequest="32" WidthRequest="32" IsVisible="{Binding Source={x:Reference StarFive}, Path=IsStarred}"/>
+
+        </Grid>
+
+      </StackLayout>
+
+      <StackLayout>
+        <StackLayout.Resources>
+          <ResourceDictionary>
+            <customControls:RatingConverter x:Key="RatingConverter" />
+            <Style TargetType="Label">
+              <Setter Property="TextColor" Value="White" />
+            </Style>
+          </ResourceDictionary>
+        </StackLayout.Resources>
+        <Label Text="{Binding Source={x:Reference StarFive}, Path=Rating, Converter={StaticResource RatingConverter}}" />
+      </StackLayout>
+
+    </StackLayout>
+
+    <StackLayout Padding="20" VerticalOptions="FillAndExpand" BackgroundColor="White">
+      
+      <Label Text="Insira um comentário" VerticalOptions="StartAndExpand" HorizontalOptions="Start" FontSize="18" TextColor="{StaticResource FontColor}"  />
+
+      <StackLayout Padding="1,1,1,1" BackgroundColor="#e5e6e6" HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+        <Editor x:Name="ComentarioEditor" Style="{StaticResource EditorStyle}" HeightRequest="80" TextChanged="ComentarioEditor_OnTextChanged" />
+      </StackLayout>
+      
+    </StackLayout>
+    
+    <StackLayout VerticalOptions="EndAndExpand">
+
+      <Button Text="ENVIAR AVALIAÇÃO" Style="{StaticResource ButtonStyle}" Clicked="EnviarButton_OnClicked"/>
+
+    </StackLayout>
+
+  </StackLayout>
+
+</ContentPage>

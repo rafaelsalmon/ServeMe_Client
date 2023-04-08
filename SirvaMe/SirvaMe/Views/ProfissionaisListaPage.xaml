@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--Professionals List (Page)-->
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:customControls="clr-namespace:SirvaMe.CustomControls;assembly=SirvaMe"
+             x:Class="SirvaMe.Views.ProfissionaisListaPage"
+             BackgroundColor="{StaticResource BackgroundColor}"
+             Title="Profissionais">
+
+  <StackLayout Padding="0,15" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+    <ActivityIndicator x:Name="ActIndicator" IsVisible="{Binding IsBusy}" IsRunning="{Binding IsBusy}" AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1" />
+
+    <Label Text="Nenhum profissional encontrado!" FontAttributes="Bold" FontSize="14" TextColor="{StaticResource DetailFontColor}" IsVisible="{Binding IsEmpty}" HorizontalTextAlignment="Center" />
+
+    <ListView x:Name="ListaServicos"
+              VerticalOptions="FillAndExpand"
+              ItemsSource="{Binding Servicos}"
+              ItemTapped="ListaServicosOnItemTapped"
+              SeparatorColor="{StaticResource DetailFontColor}"
+              RowHeight="70"
+              HasUnevenRows="True"
+              BackgroundColor="Transparent">
+
+      <ListView.ItemTemplate>
+        <DataTemplate>
+          <ViewCell>
+
+            <Grid Padding="10">
+              <Grid.RowDefinitions>
+                <RowDefinition Height="40"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+              </Grid.RowDefinitions>
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="90"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+              </Grid.ColumnDefinitions>
+
+              <customControls:CircleImage Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" Source="icon_profile2.png" HeightRequest="70" WidthRequest="70" VerticalOptions="Center" HorizontalOptions="Center" Aspect="AspectFill" />
+
+              <Label Grid.Row="0" Grid.Column="1" Text="{Binding LinkFoto}" FontSize="18" TextColor="{StaticResource TitleFontColor}" LineBreakMode="TailTruncation" VerticalOptions="EndAndExpand"></Label>
+              <Label Grid.Row="1" Grid.Column="1" Text="{Binding Nome}" FontSize="14" TextColor="{StaticResource DetailFontColor}" LineBreakMode="TailTruncation" VerticalOptions="StartAndExpand"></Label>
+
+            </Grid>
+
+          </ViewCell>
+        </DataTemplate>
+      </ListView.ItemTemplate>
+
+    </ListView>
+
+  </StackLayout>
+
+</ContentPage>

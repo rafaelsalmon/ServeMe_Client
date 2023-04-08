@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SirvaMe.App">
+  <Application.Resources>
+    <ResourceDictionary>
+      <!--Default-->
+      <x:String x:Key="ProjectName">Sirva-Me Cliente</x:String>
+      <x:String x:Key="UrlApi">[API URL]</x:String>
+      <!--OnPlatform-->
+      <OnPlatform x:Key="HeaderFont" x:TypeArguments="Font" Android="Large" iOS="Large" WinPhone="Large" />
+      <OnPlatform x:Key="PrimaryTextColor" x:TypeArguments="Color" Android="White" iOS="White" WinPhone="White" />
+      <OnPlatform x:Key="LargeFontSize" x:TypeArguments="Font" Android="40" iOS="60" WinPhone="60" />
+      <!--Fonts Colors-->
+      <Color x:Key="FontColor">#52656b</Color>
+      <Color x:Key="TitleFontColor">#535457</Color>
+      <Color x:Key="EntryTextColor">#545454</Color>
+      <Color x:Key="DetailFontColor">#bfc0c0</Color>
+      <Color x:Key="PerfilTitleFontColor">#888888</Color>
+      <Color x:Key="PerfilPlaceFontColor">#A8A8A8</Color>
+      <!--General Colors-->
+      <Color x:Key="BackgroundColor">#ffffff</Color>
+      <Color x:Key="BackgroundAgendaColor">#F6F6F6</Color>
+      <Color x:Key="BarBackgroundColor">#FCA700</Color>
+      <!--Menu Colors-->
+      <Color x:Key="MenuColor">#EE9400</Color>
+      <Color x:Key="MenuLinkColor">#FEA800</Color>
+      <Color x:Key="MenuFontColor">#ffffff</Color>
+      <!--Styles-->
+      <Style x:Key="ButtonStyle" TargetType="Button">
+        <Setter Property="BackgroundColor" Value="#545454"/>
+        <Setter Property="TextColor" Value="White"/>
+        <Setter Property="BorderRadius" Value="0"/>
+        <Setter Property="HeightRequest" Value="50"/>
+        <Setter Property="HorizontalOptions" Value="FillAndExpand"></Setter>
+        <Setter Property="VerticalOptions" Value="CenterAndExpand"></Setter>
+        <Setter Property="FontSize" Value="16"></Setter>
+        <Setter Property="FontAttributes" Value="Bold"></Setter>
+      </Style>
+      <Style x:Key="EntryStyle" TargetType="Entry">
+        <Setter Property="BackgroundColor" Value="White"/>
+        <Setter Property="TextColor" Value="#545454"/>
+        <Setter Property="PlaceholderColor" Value="#A8A8A8"></Setter>
+        <Setter Property="Placeholder" Value=""></Setter>
+        <Setter Property="HorizontalOptions" Value="FillAndExpand"></Setter>
+        <Setter Property="VerticalOptions" Value="Center"></Setter>
+      </Style>
+      <Style x:Key="EditorStyle" TargetType="Editor">
+        <Setter Property="BackgroundColor" Value="White"/>
+        <Setter Property="TextColor" Value="#545454"/>
+        <Setter Property="HeightRequest" Value="90"></Setter>
+        <Setter Property="HorizontalOptions" Value="FillAndExpand"></Setter>
+        <Setter Property="VerticalOptions" Value="Center"></Setter>
+      </Style>
+      <Style x:Key="LabelStyle" TargetType="Label">
+        <Setter Property="TextColor" Value="#888888"/>
+        <Setter Property="FontSize" Value="16"></Setter>
+      </Style>
+      <Style x:Key="LabelTitleStyle" TargetType="Label">
+        <Setter Property="TextColor" Value="#545454"/>
+        <Setter Property="FontSize" Value="20"></Setter>
+      </Style>
+      <Style x:Key="LabelSubTitleStyle" TargetType="Label">
+        <Setter Property="TextColor" Value="#888888"/>
+        <Setter Property="FontSize" Value="16"></Setter>
+      </Style>
+    </ResourceDictionary>
+  </Application.Resources>
+</Application>

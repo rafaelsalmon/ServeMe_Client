@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--Terms of Use (Page)-->
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SirvaMe.Views.TermosDeUsoPage"
+             BackgroundColor="{StaticResource BackgroundColor}"
+             Title="Termos de Uso">
+
+  <StackLayout Orientation="Vertical">
+
+    <StackLayout VerticalOptions="FillAndExpand">
+
+      <WebView x:Name="TermosWebView" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
+
+    </StackLayout>
+
+    <StackLayout VerticalOptions="End">
+
+      <Button x:Name="ButtonAceitar" Text="ACEITAR E SOLICITAR" Style="{StaticResource ButtonStyle}" VerticalOptions="End" Clicked="AceitarTermosOnButtonClicked"/>
+
+    </StackLayout>
+
+  </StackLayout>
+
+</ContentPage>

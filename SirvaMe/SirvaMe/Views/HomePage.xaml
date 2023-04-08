@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--Home (Page)-->
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SirvaMe.Views.HomePage"
+             BackgroundColor="{StaticResource BackgroundColor}">
+
+  <StackLayout Padding="0" BackgroundColor="Transparent">
+
+    <StackLayout Padding="10" BackgroundColor="Transparent" HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+
+      <Label x:Name="SemConexaoLabel" Text="Sem conexão com a internet!" Font="Bold" FontSize="18" HorizontalTextAlignment="Center"
+             HorizontalOptions="FillAndExpand" BackgroundColor="#FA8F8F" TextColor="White" IsVisible="False" />
+
+      <Label Text="HOME PAGE" Font="Bold" FontSize="20" HorizontalTextAlignment="Center" HorizontalOptions="Center" TextColor="Black" />
+      
+      <Label x:Name="TesteLabel" Text="" Font="Bold" FontSize="20" HorizontalTextAlignment="Center" HorizontalOptions="Center" TextColor="Black" />
+
+    </StackLayout>
+
+
+  </StackLayout>
+
+</ContentPage>

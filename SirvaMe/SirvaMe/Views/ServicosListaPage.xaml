@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--Services List (Page)-->
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:customControls="clr-namespace:SirvaMe.CustomControls;assembly=SirvaMe"
+             x:Class="SirvaMe.Views.ServicosListaPage"
+             BackgroundColor="{StaticResource BackgroundColor}"
+             Title="Novo Agendamento">
+
+  <StackLayout Padding="0,15,0,15" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+    <Label Text="        ESCOLHA UMA CATEGORIA" VerticalTextAlignment="Start" FontSize="16" TextColor="{StaticResource PerfilPlaceFontColor}"  />
+    <BoxView HeightRequest="1" WidthRequest="100" BackgroundColor="{StaticResource PerfilPlaceFontColor}"/>
+
+    <ActivityIndicator x:Name="ActIndicator" IsVisible="{Binding IsBusy}" IsRunning="{Binding IsBusy}" AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1" />
+
+    <ListView x:Name="ListaServicos"
+              VerticalOptions="FillAndExpand"
+              ItemsSource="{Binding Servicos}"
+              ItemTapped="ListaServicosOnItemTapped"
+              SeparatorColor="{StaticResource DetailFontColor}"
+              RowHeight="50"
+              HasUnevenRows="True"
+              BackgroundColor="Transparent">
+
+      <ListView.ItemTemplate>
+        <DataTemplate>
+          <ViewCell>
+
+            <Grid Padding="10">
+              <Grid.RowDefinitions>
+                <RowDefinition Height="40"></RowDefinition>
+              </Grid.RowDefinitions>
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="70"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+              </Grid.ColumnDefinitions>
+
+              <customControls:CircleImage Grid.Row="0" Grid.Column="0" Source="icon_services.png" HeightRequest="40" WidthRequest="40" VerticalOptions="Center" 
+                                          HorizontalOptions="Center" Aspect="AspectFill" />
+
+              <Label Grid.Row="0" Grid.Column="1" Text="{Binding Nome}" FontSize="18" FontAttributes="Bold" TextColor="{StaticResource TitleFontColor}" 
+                     LineBreakMode="TailTruncation" VerticalOptions="CenterAndExpand"></Label>
+
+            </Grid>
+
+          </ViewCell>
+        </DataTemplate>
+      </ListView.ItemTemplate>
+    </ListView>
+
+    <Label Text="Nenhuma categoria encontrada!" FontAttributes="Bold" FontSize="14" TextColor="{StaticResource DetailFontColor}" IsVisible="{Binding IsEmpty}" HorizontalTextAlignment="Center" />
+
+  </StackLayout>
+
+</ContentPage>

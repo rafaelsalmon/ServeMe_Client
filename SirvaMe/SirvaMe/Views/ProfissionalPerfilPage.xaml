@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--Professional Profile (Page)-->
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:customControls="clr-namespace:SirvaMe.CustomControls;assembly=SirvaMe"
+             x:Class="SirvaMe.Views.ProfissionalPerfilPage"
+             BackgroundColor="{StaticResource BackgroundColor}"
+             Title="Perfil Profissional">
+
+  <StackLayout Orientation="Vertical">
+
+    <ScrollView VerticalOptions="FillAndExpand">
+
+      <StackLayout VerticalOptions="FillAndExpand">
+
+        <StackLayout Padding="20" VerticalOptions="FillAndExpand" BackgroundColor="{StaticResource BackgroundAgendaColor}">
+
+          <customControls:CircleImage Source="{Binding Avatar}" HeightRequest="100" WidthRequest="100" VerticalOptions="Center" HorizontalOptions="Center" Aspect="AspectFill" />
+
+          <Label Text="{Binding Prestador.Nome}" Style="{StaticResource LabelTitleStyle}" HorizontalTextAlignment="Center"/>
+          <Label Text="{Binding TipoServico}" Style="{StaticResource LabelSubTitleStyle}" HorizontalTextAlignment="Center"/>
+
+          <StackLayout Orientation="Horizontal" HeightRequest="50" BackgroundColor="Transparent" VerticalOptions="Fill" HorizontalOptions="CenterAndExpand">
+
+            <Grid>
+              <Grid.Behaviors>
+                <customControls:StarBehavior x:Name="StarOne" GroupName="myStar"/>
+              </Grid.Behaviors>
+
+              <Image x:Name="StarBlankOne" Source="star_outline.png" HeightRequest="32" WidthRequest="32" />
+              <Image x:Name="StarSelectedOne" Source="star_selected.png" HeightRequest="32" WidthRequest="32"/>
+
+            </Grid>
+
+            <Grid Padding="15,0,0,0">
+              <Grid.Behaviors>
+                <customControls:StarBehavior x:Name="StarTwo" GroupName="myStar"/>
+              </Grid.Behaviors>
+
+              <Image x:Name="StarBlankTwo" Source="star_outline.png" HeightRequest="32" WidthRequest="32" />
+              <Image x:Name="StarSelectedTwo" Source="star_selected.png" HeightRequest="32" WidthRequest="32"/>
+
+            </Grid>
+
+            <Grid Padding="15,0,0,0">
+              <Grid.Behaviors>
+                <customControls:StarBehavior x:Name="StarThree" GroupName="myStar"/>
+              </Grid.Behaviors>
+
+              <Image x:Name="StarBlankThree" Source="star_outline.png" HeightRequest="32" WidthRequest="32" />
+              <Image x:Name="StarSelectedThree" Source="star_selected.png" HeightRequest="32" WidthRequest="32"/>
+
+            </Grid>
+
+            <Grid Padding="15,0,0,0">
+              <Grid.Behaviors>
+                <customControls:StarBehavior x:Name="StarFour" GroupName="myStar"/>
+              </Grid.Behaviors>
+
+              <Image x:Name="StarBlankFour" Source="star_outline.png" HeightRequest="32" WidthRequest="32" />
+              <Image x:Name="StarSelectedFour" Source="star_selected.png" HeightRequest="32" WidthRequest="32"/>
+
+            </Grid>
+
+            <Grid Padding="15,0,0,0">
+              <Grid.Behaviors>
+                <customControls:StarBehavior x:Name="StarFive" GroupName="myStar"/>
+              </Grid.Behaviors>
+
+              <Image x:Name="StarBlankFive" Source="star_outline.png" HeightRequest="32" WidthRequest="32" />
+              <Image x:Name="StarSelectedFive" Source="star_selected.png" HeightRequest="32" WidthRequest="32"/>
+
+            </Grid>
+
+          </StackLayout>
+
+          <BoxView HeightRequest="5" WidthRequest="100" BackgroundColor="Transparent"/>
+          <BoxView HeightRequest="1" WidthRequest="100" BackgroundColor="Gray"/>
+          <BoxView HeightRequest="5" WidthRequest="100" BackgroundColor="Transparent"/>
+
+          <Label Text="Sobre mim" Style="{StaticResource LabelTitleStyle}" FontSize="15" FontAttributes="Bold" />
+
+          <Label Text="{Binding Prestador.Apresentacao}" Style="{StaticResource LabelSubTitleStyle}" HorizontalTextAlignment="Start"/>
+
+        </StackLayout>
+
+        <StackLayout x:Name="AvaliacoesStackLayout" Padding="20,10,10,10" VerticalOptions="FillAndExpand" BackgroundColor="White" IsVisible="False">
+
+          <Label Text="Opinião do Contratante" Style="{StaticResource LabelTitleStyle}" FontSize="15" FontAttributes="Bold" />
+
+          <ListView x:Name="ListaAvaliacoes"
+                    ItemsSource="{Binding Avaliacoes}"
+                    ItemTapped="ListaAvaliacoes_OnItemTapped"
+                    IsVisible="{Binding IsNotEmpty}"
+                    VerticalOptions="FillAndExpand"
+                    SeparatorColor="Transparent"
+                    HasUnevenRows="True"
+                    RowHeight="100">
+
+            <ListView.ItemTemplate>
+              <DataTemplate>
+                <ViewCell>
+
+                  <Grid Padding="10">
+                    <Grid.RowDefinitions>
+                      <RowDefinition Height="24"></RowDefinition>
+                      <RowDefinition Height="Auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                      <ColumnDefinition Width="24"></ColumnDefinition>
+                      <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <customControls:CircleImage Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" Source="{Binding ClienteAvatar}" HeightRequest="24" WidthRequest="24" VerticalOptions="Start"
+                                                HorizontalOptions="Center" Aspect="AspectFill" />
+
+                    <Label Grid.Row="0" Grid.Column="1" Text="{Binding ClienteNome}" Style="{StaticResource LabelTitleStyle}" FontSize="15" FontAttributes="Bold" HorizontalTextAlignment="Start"
+                           VerticalTextAlignment="Center"/>
+
+                    <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding Comentario}"
+                           Style="{StaticResource LabelSubTitleStyle}" HorizontalTextAlignment="Start"/>
+
+                  </Grid>
+
+                </ViewCell>
+              </DataTemplate>
+            </ListView.ItemTemplate>
+
+          </ListView>
+
+        </StackLayout>
+
+      </StackLayout>
+
+    </ScrollView>
+
+    <StackLayout VerticalOptions="EndAndExpand">
+
+      <Button x:Name="EscolherButton" Text="ESCOLHER ESTE PROFISSIONAL" Style="{StaticResource ButtonStyle}" Clicked="EscolherOnButtonClicked" IsVisible="False" />
+      <Button x:Name="LigarButton" Text="ENTRAR EM CONTATO" Style="{StaticResource ButtonStyle}" Clicked="LigarOnButtonClicked" IsVisible="False" />
+
+    </StackLayout>
+
+  </StackLayout>
+
+</ContentPage>

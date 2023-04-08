@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--Appointment History (Page)-->
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:SirvaMe.Views;assembly=SirvaMe"
+             x:Class="SirvaMe.Views.AgendamentosHistoricoPage"
+             BackgroundColor="{StaticResource BackgroundAgendaColor}"
+             Title="Histórico">
+
+  <StackLayout Padding="10" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+    <StackLayout IsVisible="{Binding IsBusy}" AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1">
+
+      <BoxView HeightRequest="100" WidthRequest="100"/>
+
+      <ActivityIndicator IsRunning="{Binding IsBusy}"/>
+      <Label Text="Aguarde! Carregando..." HorizontalOptions="Center" Style="{StaticResource LabelStyle}"/>
+
+    </StackLayout>
+
+    <StackLayout IsVisible="{Binding IsEmpty}" AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1">
+
+      <BoxView HeightRequest="100" WidthRequest="100"/>
+
+      <Image Source="icon_refresh.png" HorizontalOptions="Center">
+        <Image.GestureRecognizers>
+          <TapGestureRecognizer Tapped="RefreshOnTapGestureRecognizerTapped" />
+        </Image.GestureRecognizers>
+      </Image>
+      <Label Text="Não há agendamentos para exibir!" FontAttributes="Bold" FontSize="16" TextColor="#bfc0c0" HorizontalOptions="Center" />
+
+    </StackLayout>
+
+    <ListView x:Name="ListaAgendamentosDisponiveis"
+              ItemsSource="{Binding AgendamentosDisponiveis}"
+              ItemTapped="AgendamentosDisponiveis_OnItemTapped"
+              IsVisible="{Binding IsNotBusy}"
+              VerticalOptions="FillAndExpand"
+              SeparatorColor="Transparent"
+              HasUnevenRows="True"
+              RowHeight="140"
+              IsPullToRefreshEnabled="{Binding IsNotBusy}"
+              RefreshCommand="{Binding ForceRefreshCommandInactive}"
+              IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+              CachingStrategy="RecycleElement">
+
+      <ListView.ItemTemplate>
+        <DataTemplate>
+          <ViewCell>
+
+            <views:AgendamentosListView  />
+
+          </ViewCell>
+        </DataTemplate>
+      </ListView.ItemTemplate>
+
+    </ListView>
+
+  </StackLayout>
+
+</ContentPage>

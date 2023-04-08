@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--Proposals (Quotes) Received (Page)-->
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:customControls="clr-namespace:SirvaMe.CustomControls;assembly=SirvaMe"
+             xmlns:utils="clr-namespace:SirvaMe.Utils;assembly=SirvaMe"
+             xmlns:system="clr-namespace:System;assembly=System.Runtime"
+             x:Class="SirvaMe.Views.PropostasRecebidasPage"
+             BackgroundColor="{StaticResource BackgroundColor}"
+             Title="Propostas Recebidas">
+
+  <ContentPage.Resources>
+    <ResourceDictionary>
+      <utils:NonNullToBooleanConverter x:Key="BooleanConverter" />
+    </ResourceDictionary>
+  </ContentPage.Resources>
+
+  <StackLayout Padding="10" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="#F6F6F6">
+
+    <StackLayout IsVisible="{Binding IsBusy}" AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1">
+
+      <BoxView HeightRequest="100" WidthRequest="100"/>
+
+      <ActivityIndicator IsRunning="{Binding IsBusy}"/>
+      <Label Text="Aguarde! Carregando..." HorizontalOptions="Center" Style="{StaticResource LabelStyle}"/>
+
+    </StackLayout>
+
+    <StackLayout IsVisible="{Binding IsEmpty}" AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1">
+
+      <BoxView HeightRequest="25" WidthRequest="100" BackgroundColor="Transparent"/>
+
+      <Label Text="Nenhuma proposta recebida!" FontAttributes="Bold" FontSize="14" TextColor="{StaticResource DetailFontColor}" HorizontalTextAlignment="Center" />
+
+    </StackLayout>
+
+    <ListView x:Name="ListaPropostas"
+              IsVisible="{Binding IsNotBusy}"
+              VerticalOptions="FillAndExpand"
+              ItemsSource="{Binding Propostas}"
+              ItemTapped="ListaPropostas_OnItemTapped"
+              SeparatorColor="Transparent"
+              RowHeight="100"
+              HasUnevenRows="True"
+              BackgroundColor="Transparent">
+
+      <ListView.ItemTemplate>
+        <DataTemplate>
+          <ViewCell>
+
+            <StackLayout Padding="5" HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand">
+
+              <StackLayout Padding="15" HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand" BackgroundColor="White">
+
+                <Grid>
+                  <Grid.RowDefinitions>
+                    <RowDefinition Height="30"></RowDefinition>
+                    <RowDefinition Height="30"></RowDefinition>
+                    <RowDefinition Height="36"></RowDefinition>
+                  </Grid.RowDefinitions>
+                  <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="30"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                  </Grid.ColumnDefinitions>
+
+                  <customControls:CircleImage Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" Source="{Binding Avatar}" HeightRequest="30" WidthRequest="30"
+                                              VerticalOptions="Start" HorizontalOptions="Center" Aspect="AspectFill" />
+
+                  <Label Grid.Row="0" Grid.Column="1" Text="{Binding Prestador.Nome}" Style="{StaticResource LabelTitleStyle}" FontSize="16" FontAttributes="Bold"
+                         HorizontalTextAlignment="Start" VerticalTextAlignment="Center"/>
+
+                  <StackLayout x:Name="StarsStack" Grid.Row="1" Grid.Column="1" Orientation="Horizontal" HeightRequest="50" BackgroundColor="Transparent" VerticalOptions="Fill"
+                               HorizontalOptions="StartAndExpand">
+
+                    <Grid>
+                      <Grid.Behaviors>
+                        <customControls:StarBehavior x:Name="StarOne" GroupName="myStar"/>
+                      </Grid.Behaviors>
+
+                      <Image x:Name="StarBlankOne" Source="star_outline.png" HeightRequest="24" WidthRequest="24" />
+                      <Image x:Name="StarSelectedOne" Source="star_selected.png" HeightRequest="24" WidthRequest="24">
+                        <Image.IsVisible>
+                          <Binding Path="Prestador.Nota" Converter="{StaticResource BooleanConverter}">
+                            <Binding.ConverterParameter>
+                              <system:Int32>1</system:Int32>
+                            </Binding.ConverterParameter>
+                          </Binding>
+                        </Image.IsVisible>
+                      </Image>
+
+                    </Grid>
+
+                    <Grid Padding="15,0,0,0">
+                      <Grid.Behaviors>
+                        <customControls:StarBehavior x:Name="StarTwo" GroupName="myStar"/>
+                      </Grid.Behaviors>
+
+                      <Image x:Name="StarBlankTwo" Source="star_outline.png" HeightRequest="24" WidthRequest="24" />
+                      <Image x:Name="StarSelectedTwo" Source="star_selected.png" HeightRequest="24" WidthRequest="24">
+                        <Image.IsVisible>
+                          <Binding Path="Prestador.Nota" Converter="{StaticResource BooleanConverter}">
+                            <Binding.ConverterParameter>
+                              <system:Int32>2</system:Int32>
+                            </Binding.ConverterParameter>
+                          </Binding>
+                        </Image.IsVisible>
+                      </Image>
+                    </Grid>
+
+                    <Grid Padding="15,0,0,0">
+                      <Grid.Behaviors>
+                        <customControls:StarBehavior x:Name="StarThree" GroupName="myStar"/>
+                      </Grid.Behaviors>
+
+                      <Image x:Name="StarBlankThree" Source="star_outline.png" HeightRequest="24" WidthRequest="24" />
+                      <Image x:Name="StarSelectedThree" Source="star_selected.png" HeightRequest="24" WidthRequest="24">
+                        <Image.IsVisible>
+                          <Binding Path="Prestador.Nota" Converter="{StaticResource BooleanConverter}">
+                            <Binding.ConverterParameter>
+                              <system:Int32>3</system:Int32>
+                            </Binding.ConverterParameter>
+                          </Binding>
+                        </Image.IsVisible>
+                      </Image>
+
+                    </Grid>
+
+                    <Grid Padding="15,0,0,0">
+                      <Grid.Behaviors>
+                        <customControls:StarBehavior x:Name="StarFour" GroupName="myStar"/>
+                      </Grid.Behaviors>
+
+                      <Image x:Name="StarBlankFour" Source="star_outline.png" HeightRequest="24" WidthRequest="24" />
+                      <Image x:Name="StarSelectedFour" Source="star_selected.png" HeightRequest="24" WidthRequest="24">
+                        <Image.IsVisible>
+                          <Binding Path="Prestador.Nota" Converter="{StaticResource BooleanConverter}">
+                            <Binding.ConverterParameter>
+                              <system:Int32>4</system:Int32>
+                            </Binding.ConverterParameter>
+                          </Binding>
+                        </Image.IsVisible>
+                      </Image>
+                    </Grid>
+
+                    <Grid Padding="15,0,0,0">
+                      <Grid.Behaviors>
+                        <customControls:StarBehavior x:Name="StarFive" GroupName="myStar"/>
+                      </Grid.Behaviors>
+
+                      <Image x:Name="StarBlankFive" Source="star_outline.png" HeightRequest="24" WidthRequest="24" />
+                      <Image x:Name="StarSelectedFive" Source="star_selected.png" HeightRequest="24" WidthRequest="24">
+                        <Image.IsVisible>
+                          <Binding Path="Prestador.Nota" Converter="{StaticResource BooleanConverter}">
+                            <Binding.ConverterParameter>
+                              <system:Int32>5</system:Int32>
+                            </Binding.ConverterParameter>
+                          </Binding>
+                        </Image.IsVisible>
+                      </Image>
+
+                    </Grid>
+
+                  </StackLayout>
+
+                  <Button Grid.Row="2" Grid.Column="1" Text="ESCOLHER ESTE PROFISSIONAL" FontSize="15" FontAttributes="Bold" TextColor="White"
+                          BackgroundColor="{StaticResource MenuLinkColor}" BorderRadius="0"  HorizontalOptions="Start" Clicked="Button_OnClicked" CommandParameter="{Binding Prestador.Id}" />
+
+                </Grid>
+
+              </StackLayout>
+            </StackLayout>
+
+          </ViewCell>
+        </DataTemplate>
+      </ListView.ItemTemplate>
+    </ListView>
+
+  </StackLayout>
+
+</ContentPage>
