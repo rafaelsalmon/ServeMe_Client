@@ -1,6 +1,6 @@
 Multi-PLatform Mobile App with Xamarin.Forms.
 
-It is the CLIENT mobile app in a home services marketplace. You can schedule appointments with service professionals, like plumbers, who are available and in your region, through a user experience much similar to asking for an Uber ride.
+It is the CLIENT mobile app on a home services marketplace. You can schedule appointments with service professionals, like plumbers, who are available and at your region, through a user experience similar to hailing a cab using the Uber app, provided that a service request can be more detailed than a ride request and the pricing is negotiated.
 
 # UTILITY
 
