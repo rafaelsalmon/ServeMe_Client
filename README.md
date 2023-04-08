@@ -18,7 +18,7 @@ You can see in this app the use of a few design patterns (some of which not full
 * Dependency Injection.
 	There is a dependency injection on Repositorio\AcessoDados.cs, as an example of the pattern use.
 
-It is intrinsic of a Xamarin.Forms' mobile app to make `asynchronous calls`, so this project also presents a good demonstration of this approach.
+This project also presents a decent set of `asynchronous calls`.
 
 # RELEASE NOTES
 
